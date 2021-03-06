@@ -3,12 +3,8 @@
 import pywikibot
 import re
 import csv
-import wd_utils_021 as wd_utils
 
 from pywikibot import pagegenerators as pg
-
-site = pywikibot.Site('nl', 'wikipedia')
-tmpl_gen = list_template_usage(site, "Infobox kunstenaar")
 
 afbeeldingCLAIM = u'P18'
 
@@ -75,6 +71,11 @@ def comparestrings(str1, str2):
   if str1.replace('_',' ').strip() == str2.replace('_',' ').strip():
     return 'Ja'
   return 'Nee'     
+
+site = pywikibot.Site('nl', 'wikipedia')
+
+## Edit next line to use an other template
+tmpl_gen = list_template_usage(site, "Infobox kunstenaar")
     
 with open("kunstenaars.csv", "w", newline="", encoding='utf-8') as csvf:
   with open("kunstenaars_aandacht.csv", "w", newline="", encoding='utf-8') as csvf2:
